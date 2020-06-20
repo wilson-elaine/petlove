@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% set pageId = "page-create-pet" %}
+
+{% block title %}
+    <title>Cadastrar pet</title>
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/create-pet.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+
+    <form action="/savepoint" method="POST">
+
+        <h1>Cadastro do pet</h1>
+
+      <fieldset>
+            <legend>
+                <h2>Espécies</h2>
+                <span>Selecione um abaixo</span>
+            </legend>
+
+            <div class="items-grid">
+                <li data-id="Cachorro">
+                    <img src="/assets/dog.svg" alt="Cachorro">
+                    <span>Cachorro</span>
+                </li>
+
+                <li data-id="Gato">
+                    <img src="/assets/cat.svg" alt="Gato">
+                    <span>Gato</span>
+                </li>
+
+                <li data-id="Passáro">
+                    <img src="/assets/bird.svg" alt="Passáro">
+                    <span>Passáro</span>
+                </li>
+
+                <li data-id="Peixe">
+                    <img src="/assets/fish.svg" alt="Peixe">
+                    <span>Peixe</span>
+                </li>
+
+                <li data-id="Roedor">
+                    <img src="/assets/rodent.svg" alt="Roedor">
+                    <span>Roedor</span>
+                </li>
+
+                <li data-id="Coelho">
+                    <img src="/assets/rabbit.svg" alt="Coelho">
+                    <span>Coelho</span>
+                </li>
+            </div>
+
+            <input type="hidden" name="items">
+
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <h2>Dados</h2>
+            </legend>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="name">Nome do pet</label>                    
+                    <input type="text" name="name" required="required">
+                </div>
+                <div class="field">
+                    <label for="age">Idade aproximada</label>
+                    <input type="number" name="age" > 
+                </div>                
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="name">Link da foto</label>
+                    <input 
+                    type="url"
+                    name="image"
+                    placeholder="http://"
+                    required="required">
+                </div>
+
+                <div class="field">
+                    <label for="breed">Raça</label>
+                    <input type="text" name="breed">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="address">Endereço</label>
+                    <input type="text" name="address" required="required">
+                </div>
+                <div class="field">
+                    <label for="address2">Número/Complemento</label>
+                    <input type="text" name="address2" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+
+                <div class="field">
+                    <label for="state">Estado</label>
+                    <select name="uf" required="required">
+                        <option value="">Selcione o Estado</option>
+                    </select>
+
+                    <input type="hidden" name="state">
+                </div>
+
+                <div class="field">
+                    <label for="city">Cidade</label>
+                    <select name="city" disabled="disabled" required="required">
+                        <option value="">Selecione a Cidade</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <div class="right">
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
+
+    
+    
+{% endblock content %}
+
+
+{% block modal %}
+    {% if saved %}
+       {%include "partials/point-created.html"%}
+    {% endif %}    
+{% endblock modal %}
+
+
+{% block scripts %}
+    <script src="/scripts/create-pet.js"></script>
+{% endblock scripts %}

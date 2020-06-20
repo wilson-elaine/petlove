@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% set pageId = "page-home" %}
+    
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+{% endblock styles %}
+
+    
+{% block content %}
+    <div class="content">
+            <header>
+                <img src="/assets/logo.svg" alt="Logomarca">
+                <a href="/create-pet">
+                    <span></span> Quero doar um pet!
+                </a>
+            </header>
+            <main>
+                <h1>Adote um <span>pet</span></h1>
+                <h1>Adote um <span>amigo</span></h1>
+                <p>Ajudamos você a encontrar o seu novo melhor amigo.</p>
+                <a href="search"><span></span><strong>Quero adotar!</strong></a>
+            </main>
+    </div>
+{% endblock content %}
+
+
+
+        
