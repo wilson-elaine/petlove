@@ -11,25 +11,27 @@ db.serialize(() => {
     // com comandos SQL eu vou:
 
     // 1 criar uma tabela
-    // db.run(`
-    //     CREATE TABLE IF NOT EXISTS pets (
-    //         id INTEGER PRIMARY KEY AUTOINCREMENT,
-    //         image TEXT,
-    //         name TEXT,
-    //         description TEXT,
-    //         address TEXT,
-    //         number TEXT,
-    //         state TEXT,
-    //         city TEXT,
-    //         species TEXT
-    //     );
+    db.run(`
+        CREATE TABLE IF NOT EXISTS pets (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            image TEXT,
+            name TEXT,
+            age TEXT,
+            description TEXT,
+            breed TEXT,
+            address TEXT,
+            number TEXT,
+            state TEXT,
+            city TEXT,
+            species TEXT
+        );
 
-    //     CREATE TABLE IF NOT EXISTS species (
-    //         id INTEGER PRIMARY KEY AUTOINCREMENT,
-    //         image TEXT,
-    //         name TEXT
-    //     );
-    // `)
+        // CREATE TABLE IF NOT EXISTS species (
+        //     id INTEGER PRIMARY KEY AUTOINCREMENT,
+        //     image TEXT,
+        //     name TEXT
+        // );
+    `)
 
 
 

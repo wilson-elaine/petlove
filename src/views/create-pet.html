@@ -14,7 +14,7 @@
 {% block content %}
     {% include "partials/page-header.html" %}
 
-    <form action="/savepoint" method="POST">
+    <form action="/savepet" method="POST">
 
         <h1>Cadastro do pet</h1>
 
@@ -24,7 +24,7 @@
                 <span>Selecione um abaixo</span>
             </legend>
 
-            <div class="items-grid">
+            <div class="species-grid">
                 <li data-id="Cachorro">
                     <img src="/assets/dog.svg" alt="Cachorro">
                     <span>Cachorro</span>
@@ -56,7 +56,7 @@
                 </li>
             </div>
 
-            <input type="hidden" name="items">
+            <input type="hidden" name="species">
 
         </fieldset>
 
@@ -72,7 +72,7 @@
                 </div>
                 <div class="field">
                     <label for="age">Idade aproximada</label>
-                    <input type="number" name="age" > 
+                    <input type="text" name="age" > 
                 </div>                
             </div>
 
@@ -92,14 +92,19 @@
                 </div>
             </div>
 
+            <div class="field">
+                <label for="description">Descrição</label>
+                <textarea name="description" id="description" cols="30" rows="5"></textarea>
+            </div>
+
             <div class="field-group">
                 <div class="field">
                     <label for="address">Endereço</label>
                     <input type="text" name="address" required="required">
                 </div>
                 <div class="field">
-                    <label for="address2">Número/Complemento</label>
-                    <input type="text" name="address2" required="required">
+                    <label for="number">Número/Complemento</label>
+                    <input type="text" name="number" required="required">
                 </div>
             </div>
 
@@ -134,7 +139,7 @@
 
 {% block modal %}
     {% if saved %}
-       {%include "partials/point-created.html"%}
+       {%include "partials/pet-created.html"%}
     {% endif %}    
 {% endblock modal %}
 

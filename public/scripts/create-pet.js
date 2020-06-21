@@ -46,52 +46,52 @@ document
 
 // Itens de coleta
 // pegar todos os li`s
-const itemstoCollect = document.querySelectorAll(".items-grid li")
+const species = document.querySelectorAll(".species-grid li")
 
-for (const item of itemstoCollect) {
-    item.addEventListener("click", handleSectedItem)
+for (const specie of species) {
+    specie.addEventListener("click", handleSectedSpecie)
 }
 
-const collectedItems = document.querySelector("input[name=items]")
+const collectedSpecies = document.querySelector("input[name=species]")
 
-let selectedItems = []
+let selectedSpecies = []
 
-function handleSectedItem(event) {
-    const itemLi = event.target
+function handleSectedSpecie(event) {
+    const specieLi = event.target
 
     // adicionar ou nremover uma classe com javascript
-    itemLi.classList.toggle("selected")
+    specieLi.classList.toggle("selected")
 
-    const itemId = itemLi.dataset.id
+    const specieId = specieLi.dataset.id
 
-    // console.log('ITEM ID: ', itemId)
+    // console.log('SPECIE ID: ', specieId)
 
     // verificar se existem itens selecionados, se sim
     // pegar os itens selecionados
 
-    const alreadySelected = selectedItems.findIndex(item => {
-        const itemFound = item == itemId // isso será true ou false
-        return itemFound
+    const alreadySelected = selectedSpecies.findIndex(specie => {
+        const specieFound = specie == specieId // isso será true ou false
+        return specieFound
     })
 
     // se já estiver selecionado, tirar da selecao
     if (alreadySelected >= 0) {
         // tirar da seleção
-        const filteredItems = selectedItems.filter(item => {
-            const itemIsDifferent = item != itemId // false
-            return itemIsDifferent
+        const filteredSpecies = selectedSpecies.filter(specie => {
+            const specieIsDifferent = specie != specieId // false
+            return specieIsDifferent
         })
 
-        selectedItems = filteredItems
+        selectedSpecies = filteredSpecies
     } else {
         // se não estiver selecionado 
         // adicionar à selecao
-        selectedItems.push(itemId)
+        selectedSpecies.push(specieId)
     }
 
-    // console.log('selectedItems: ', selectedItems)
+    // console.log('selectedSpecies: ', selectedSpecies)
 
     // atualizar o campo escondido com os dados selecionados
-    collectedItems.value = selectedItems
+    collectedSpecies.value = selectedSpecies
 
 }

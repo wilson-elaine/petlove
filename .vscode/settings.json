@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder:petlove}/src/database/database.db",
+            "driver": "SQLite",
+            "name": "node",
+            "previewLimit": 50
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

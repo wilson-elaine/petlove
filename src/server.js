@@ -33,32 +33,38 @@ server.get("/create-pet", (req, res) => {
     return res.render("create-pet.html")
 })
 
-server.post("/savepoint", (req, res) => {
+server.post("/savepet", (req, res) => {
 
     //  req.body: O corpo do nosso formulario
     // console.log(req.body)
 
     // inserir dados no banco de dados
     const query = `
-        INSERT INTO places (
+        INSERT INTO pets (
             image,
             name,
+            age,
+            description,
+            breed,
             address,
-            address2,
+            number,
             state,
             city,
-            items
-        ) VALUES (?,?,?,?,?,?,?);
+            species
+        ) VALUES (?,?,?,?,?,?,?,?,?,?);
 
     `
     const values = [
         req.body.image,
         req.body.name,
+        req.body.age,
+        req.body.description,
+        req.body.breed,
         req.body.address,
-        req.body.address2,
+        req.body.number,
         req.body.state,
         req.body.city,
-        req.body.items
+        req.body.species
 
     ]
 
